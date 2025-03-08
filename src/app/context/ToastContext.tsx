@@ -27,7 +27,7 @@ type ToastProviderProps = {
 } & PropsWithChildren;
 
 export const ToastProvider = ({
-  defaulttimeout = 3000, // Default timeout of 3 seconds
+  defaulttimeout = 3000,
   children,
 }: ToastProviderProps) => {
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
@@ -38,16 +38,12 @@ export const ToastProvider = ({
     timeout: number = defaulttimeout,
     onClose?: () => void
   ) => {
-    const id = Date.now(); // Unique ID for each toast
+    const id = Date.now();
     setToasts((prev) => [...prev, { id, type, title, onClose }]);
 
     setTimeout(() => {
       setToasts((prev) => prev.filter((toast) => toast.id !== id));
-
-      // ✅ Call onClose when toast is removed
-      if (onClose) {
-        onClose();
-      }
+      if (onClose) onClose();
     }, timeout);
   };
 
@@ -60,6 +56,11 @@ export const ToastProvider = ({
   return (
     <ToastContext.Provider value={{ successToast, errorToast }}>
       {children}
+      {/* Overlay to disable clicks when toast is active */}
+      {toasts.length > 0 && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40" />
+      )}
+      {/* Toast container */}
       <div className="fixed top-4 right-4 space-y-2 z-50">
         {toasts.map((toast) => (
           <div

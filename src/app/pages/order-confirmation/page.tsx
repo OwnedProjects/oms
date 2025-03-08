@@ -31,7 +31,7 @@ const OrderConfirmation = () => {
   return (
     <>
       <Header />
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+      <div className="flex flex-col items-center justify-top min-h-screen bg-gray-100 p-6">
         <Card className="w-full max-w-lg bg-white shadow-lg p-6 rounded-lg">
           {/* Success Message */}
           <h2 className="text-2xl font-bold text-green-600 text-center">

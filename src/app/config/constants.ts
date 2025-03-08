@@ -1,3 +1,4 @@
 export const CONSTANTS = {
   API_GATEWAY: process.env.NEXT_PUBLIC_API_GATEWAY_URL,
+  API_SOCKET_URL: process.env.NEXT_PUBLIC_API_SOCKET_URL,
 };

@@ -43,7 +43,7 @@ const Product = ({ item }: ProductProps) => {
   };
 
   return (
-    <Card shadow="sm" radius="none">
+    <Card shadow="sm" className="border-1 border-gray" radius="none">
       {/* Product Image */}
       <CardBody className="overflow-visible bg-default-200 p-0">
         <Image
