@@ -21,6 +21,11 @@ const Header = () => {
               Kitchen
             </Link>
           </NavbarItem>
+          <NavbarItem isActive>
+            <Link color="foreground" href="/pages/display-orders">
+              Display Orders
+            </Link>
+          </NavbarItem>
         </NavbarContent>
         <NavbarContent as="div" justify="end">
           <Link color="foreground" href="/">

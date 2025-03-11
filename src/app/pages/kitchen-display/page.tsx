@@ -33,7 +33,6 @@ const KitchenDisplay = () => {
     try {
       const res = await fetch(`${CONSTANTS.API_GATEWAY}/orders/pendingorders`);
       const data = await res.json();
-      console.log("=====> ", data);
       setOrders(data);
       setIsLoading(false);
     } catch (error) {
